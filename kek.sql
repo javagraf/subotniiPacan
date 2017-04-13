@@ -1,10 +1,10 @@
   SELECT ID, C_NAME, (CHAR_LENGTH(sentences.C_NAME)-
-            CHAR_LENGTH(Replace(sentences.C_NAME,'ого','!!'))) 
+            CHAR_LENGTH(Replace(sentences.C_NAME,'РѕРіРѕ','!!'))) 
             +
             (CHAR_LENGTH(sentences.C_NAME)-
-            CHAR_LENGTH(Replace(sentences.C_NAME,'ый','!')))
+            CHAR_LENGTH(Replace(sentences.C_NAME,'С‹Р№','!')))
             +
             (CHAR_LENGTH(sentences.C_NAME)-
-            CHAR_LENGTH(Replace(sentences.C_NAME,'ую','!')))
+            CHAR_LENGTH(Replace(sentences.C_NAME,'СѓСЋ','!')))
             AS 'SUM'      
   FROM sentences
