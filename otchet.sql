@@ -21,15 +21,15 @@ PREPARE stmt FROM @sql;
 EXECUTE stmt;
 DEALLOCATE PREPARE stmt;
 
-select pt.partner_name,
-  count(case when pd.product_name = 'Product A' THEN 1 END) ProductA,
-  count(case when pd.product_name = 'Product B' THEN 1 END) ProductB,
-  count(case when pd.product_name = 'Product C' THEN 1 END) ProductC,
-  count(case when pd.product_name = 'Product D' THEN 1 END) ProductD,
-  count(case when pd.product_name = 'Product E' THEN 1 END) ProductE
+select pt.C_PARTNERS_NAME,
+  count(case when pd.C_PRODUCT_NAME = 'Cheese' THEN 1 END) as Cheese,
+  count(case when pd.C_PRODUCT_NAME = 'Milk' THEN 1 END) as Milk,
+  count(case when pd.C_PRODUCT_NAME = 'Apple' THEN 1 END) as Apple,
+  count(case when pd.C_PRODUCT_NAME = 'Bread' THEN 1 END) as Bread,
+  count(case when pd.C_PRODUCT_NAME = 'Chocolate' THEN 1 END) as Chocolate
 from partners pt
 left join sales s
-  on pt.part_id = s.partner_id
+  on pt.ID_PARTNERS = s.F_ID_PARTNER
 left join products pd
-  on s.product_id = pd.prod_id
-group by pt.partner_name
+  on s.F_ID_PRODUCT = pd.ID_PROD
+group by pt.C_PARTNERS_NAME
